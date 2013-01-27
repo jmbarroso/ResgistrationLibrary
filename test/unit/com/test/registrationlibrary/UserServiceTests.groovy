@@ -22,4 +22,36 @@ class UserServiceTests {
         assert validDomains == validDomainsConfigured.keySet()
 
     }
+
+    @Test
+    void "an email is valid if exists for a specific valid domain"() {
+
+        def validDomainsConfigured = ['English':['org.uk', 'co.uk', '.biz']]
+        grailsApplication.config.userRegistration.validEmailsPerUserDomain = validDomainsConfigured
+
+        def validDomain = 'English'
+
+        assert service.isValidEmail("email@provider.org.uk",validDomain)
+        assert service.isValidEmail("email@provider.co.uk",validDomain)
+        assert service.isValidEmail("email@provider.biz",validDomain)
+
+        assertFalse(service.isValidEmail("email@org.uk.other",validDomain))
+
+    }
+
+    @Test
+    void "An invalid domain trying to validate email should be false"() {
+
+        def validDomainsConfigured = ['English':['org.uk', 'co.uk', '.biz']]
+        grailsApplication.config.userRegistration.validEmailsPerUserDomain = validDomainsConfigured
+
+        def validDomain = 'InexistentDomain'
+
+        assert service.isValidEmail("email@provider.org.uk",validDomain)
+        assert service.isValidEmail("email@provider.co.uk",validDomain)
+        assert service.isValidEmail("email@provider.biz",validDomain)
+
+        assertFalse(service.isValidEmail("email@org.uk.other",validDomain))
+
+    }
 }
