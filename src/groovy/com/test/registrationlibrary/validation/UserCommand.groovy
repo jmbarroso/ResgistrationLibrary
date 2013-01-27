@@ -10,6 +10,7 @@ class UserCommand {
     Integer zipCode
     String userDomain
 
+    //TODO create custom messages to custom validator
     static constraints = {
         userDomain(validator: { userDomain, obj ->
             return obj.userService.isValidDomain(userDomain)

@@ -2,6 +2,8 @@ package com.test.registrationlibrary
 
 import com.test.registrationlibrary.validation.UserCommand
 
+
+/* Controller to permits user registration from front-end application */
 class UserController {
 
     public static final USER_VALIDATION_ERROR = "user.controller.error.validation"
