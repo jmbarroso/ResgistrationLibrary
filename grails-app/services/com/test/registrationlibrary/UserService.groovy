@@ -40,6 +40,10 @@ class UserService implements InitializingBean {
         return isValid
     }
 
+    def saveUser(userCommand) {
+
+    }
+
     private def getValidEmails(domain) {
 
         def validEmails = mappingUserDomainAndValidEmails.get(domain)

@@ -11,25 +11,25 @@ import org.junit.*
 @TestFor(UserService)
 class UserServiceTests {
 
+    def validDomainsConfigured = ['English':['org.uk', 'co.uk', '.biz']]
+
+    @Before
+    void setUp() {
+       grailsApplication.config.userRegistration.validEmailsPerUserDomain = validDomainsConfigured
+       service.afterPropertiesSet()
+    }
     @Test
     void "Valid user domains configured in Config should be returned by service"() {
 
-        def validDomainsConfigured = ['English':['org.uk', 'co.uk', '.biz']]
-        grailsApplication.config.userRegistration.validEmailsPerUserDomain = validDomainsConfigured
-
         def validDomains = service.getValidsUserDomain()
 
-        assert validDomains == validDomainsConfigured.keySet()
+        assert 'English' == validDomainsConfigured.keySet()
 
     }
 
     @Test
     void "an email is valid if exists for a specific valid domain"() {
 
-        def validDomainsConfigured = ['English':['org.uk', 'co.uk', '.biz']]
-        grailsApplication.config.userRegistration.validEmailsPerUserDomain = validDomainsConfigured
-
-        def validDomain = 'English'
 
         assert service.isValidEmail("email@provider.org.uk",validDomain)
         assert service.isValidEmail("email@provider.co.uk",validDomain)
@@ -42,16 +42,15 @@ class UserServiceTests {
     @Test
     void "An invalid domain trying to validate email should be false"() {
 
-        def validDomainsConfigured = ['English':['org.uk', 'co.uk', '.biz']]
-        grailsApplication.config.userRegistration.validEmailsPerUserDomain = validDomainsConfigured
 
-        def validDomain = 'InexistentDomain'
+        def validDomain = 'English'
 
         assert service.isValidEmail("email@provider.org.uk",validDomain)
         assert service.isValidEmail("email@provider.co.uk",validDomain)
         assert service.isValidEmail("email@provider.biz",validDomain)
 
-        assertFalse(service.isValidEmail("email@org.uk.other",validDomain))
+        def invalidDomain = 'InexistentDomain'
+        assertFalse(service.isValidEmail("email@org.uk.other",invalidDomain))
 
     }
 }
