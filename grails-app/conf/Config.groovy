@@ -89,3 +89,8 @@ log4j = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 }
+
+
+userRegistration.validEmailsPerUserDomain = ['English':['org.uk', 'co.uk', '.biz'],
+                                             'Brazil':['.org.br', '.info'],
+                                             'Spanish':['.acrede-es', '.acrede']]
