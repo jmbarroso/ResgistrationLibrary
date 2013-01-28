@@ -1,1 +1,16 @@
-This file was created by IntelliJ IDEA 12.0.2 for binding GitHub repository
+= TEST PROJECT =
+
+Application is a front-end to register users and has a Rest service to permits to other applications the user register.
+
+Requirements and assumptions
+
+* Application could be consumed fot other grails applications, non grails applications (mobile, j2EE ..)
+** For this reason de app is not a  grails plugins
+
+* The application use a command object model to centralized validation. Register user sometime requiere validations that
+ are out of domain classes scope (like password validation)
+
+* The application is designed to be open to new changes. there was doubt whether the requirements.
+** com-en , com-br are not domains valid. Should they get from local or HTTP_REFERER?
+
+* have done some tests, but not strict TDD
