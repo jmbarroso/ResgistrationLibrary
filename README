@@ -1,16 +1,18 @@
 = TEST PROJECT =
 
-Application is a front-end to register users and has a Rest service to permits to other applications the user register.
+It's a exercise for a grails position. Must be completed in 3 hours. A pdf file with description could be found in the root folder.
+
+Application is a front-end to register users and incudes a Rest service to permits to reuse the functionality. 
 
 Requirements and assumptions
 
-* Application could be consumed fot other grails applications, non grails applications (mobile, j2EE ..)
+* Application could be consumed fot other grails applications, and non grails applications (mobile, j2EE ..)
 ** For this reason de app is not a  grails plugins
 
-* The application use a command object model to centralized validation. Register user sometime requiere validations that
+* The application uses a command object model to centralized validation. User registration sometime requieres validations that
  are out of domain classes scope (like password validation)
 
-* The application is designed to be open to new changes. there was doubt whether the requirements.
-** com-en , com-br are not domains valid. Should they get from local or HTTP_REFERER?
+* The application is designed to be open to new changes (there was doubt whether the requirements).
+** com-en , com-br are not domains valid. Should they get from user locale or HTTP_REFERER?
 
-* have done some tests, but not strict TDD
+* have done tests, but not strict TDD
