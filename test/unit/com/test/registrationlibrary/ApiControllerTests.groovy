@@ -6,6 +6,7 @@ import com.test.registrationlibrary.validation.UserCommand
 import com.test.registrationlibrary.domain.*
 import grails.test.mixin.*
 import org.junit.*
+import groovy.json.JsonOutput
 
 /**
  * See the API for {@link grails.test.mixin.web.ControllerUnitTestMixin} for usage instructions
@@ -28,9 +29,11 @@ class ApiControllerTests {
         userCommand.userDomain = 'English'
         userCommand.validate()
 
+        request.method = "PUT"
         controller.register(userCommand)
 
         assert 200 == response.status
+        assert response.json.id != null
     }
 
 
@@ -47,6 +50,20 @@ class ApiControllerTests {
         assert response.json.errors.username != null
         assert response.json.errors.email != null
         assert response.json.errors.zipCode != null
+    }
+
+    @Test
+    void "A list of valid emails  by domian configured could be consulting by api consumers"() {
+
+        request.method = "GET"
+        controller.getValidEmailsGroupedByUserDomain()
+
+
+        println JsonOutput.prettyPrint(response.text)
+
+        assert 200 == response.status
+        assert response.json != null
+
     }
 
 }

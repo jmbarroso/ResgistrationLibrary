@@ -6,7 +6,9 @@ import com.test.registrationlibrary.validation.UserCommand
 /* controller to permits to others app user registration */
 class ApiController {
 
-    static allowedMethods = [register: 'POST']
+    def userService
+
+    static allowedMethods = [register: 'POST',getValidEmailsGroupedByUserDomain: 'GET']
 
     def register(UserCommand userCommand) {
 
@@ -19,7 +21,22 @@ class ApiController {
             return render([errors: errors] as JSON)
         }
 
+        def userId = userService.saveUser(userCommand)
+
+        if (userId) {
+            response.status = 200
+            return render([id:userId] as JSON)
+        } else {
+            response.status = 500
+            return render ([error: 'Internal error'] as JSON)
+        }
+    }
+
+    def getValidEmailsGroupedByUserDomain() {
+
+        def validEmailGroupedByDomain = userService.getValidEmailsGroupByUserDomain()
+
         response.status = 200
-        //TODO Add parameter to response: ID user
+        return render (validEmailGroupedByDomain as JSON)
     }
 }

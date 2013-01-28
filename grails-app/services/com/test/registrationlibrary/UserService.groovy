@@ -23,6 +23,10 @@ class UserService implements InitializingBean {
         return mappingUserDomainAndValidEmails.keySet()
     }
 
+    def getValidEmailsGroupByUserDomain() {
+        return mappingUserDomainAndValidEmails
+    }
+
 
     def isValidDomain(domain) {
         return (mappingUserDomainAndValidEmails.get(domain) != null)
@@ -49,6 +53,7 @@ class UserService implements InitializingBean {
             return user.id
         }
         log.error "Error saving user"
+        return null
     }
 
     private def getValidEmails(domain) {
