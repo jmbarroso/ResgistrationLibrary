@@ -5,12 +5,13 @@ package com.test.registrationlibrary
 import grails.test.mixin.*
 import org.junit.*
 import com.test.registrationlibrary.validation.UserCommand
+import com.test.registrationlibrary.domain.*
 
 /**
  * See the API for {@link grails.test.mixin.web.ControllerUnitTestMixin} for usage instructions
  */
 @TestFor(UserController)
-@Mock(UserService)
+@Mock([UserService,User])
 class UserControllerTests {
 
     @Test
@@ -45,10 +46,10 @@ class UserControllerTests {
 
         controller.register(userCommand)
 
-        model.userCommand != null
-        model.userCommand.username == username
-        model.userCommand.email == email
-        model.userCommand.zipCode == zipCode
+        model.user != null
+        model.user.username == username
+        model.user.email == email
+        model.user.zipCode == zipCode
 
         assert view == '/user/show'
     }

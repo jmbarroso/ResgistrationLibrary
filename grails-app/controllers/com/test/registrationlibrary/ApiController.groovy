@@ -20,5 +20,6 @@ class ApiController {
         }
 
         response.status = 200
+        //TODO Add parameter to response: ID user
     }
 }

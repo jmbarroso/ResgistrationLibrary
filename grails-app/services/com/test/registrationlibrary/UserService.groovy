@@ -1,7 +1,7 @@
 package com.test.registrationlibrary
 
 import org.springframework.beans.factory.InitializingBean
-
+import com.test.registrationlibrary.domain.*
 
 class UserService implements InitializingBean {
 
@@ -33,7 +33,7 @@ class UserService implements InitializingBean {
 
         def isValid = false
         validEmails.each { validAddress ->
-            if (email =~ ".*${validAddress}\$") {
+            if (email =~ ".*${validAddress}\$") {   //TODO Extract pattern to constant
                 isValid = true;
             }
         }
@@ -41,7 +41,14 @@ class UserService implements InitializingBean {
     }
 
     def saveUser(userCommand) {
+        log.debug " Saving user .."
 
+        def user = new User(username: userCommand.username,email: userCommand.email,zipCode: userCommand.zipCode, registerDate: new Date())
+        if (user.save(flush: true)) {
+            log.info "user saved"
+            return user.id
+        }
+        log.error "Error saving user"
     }
 
     private def getValidEmails(domain) {

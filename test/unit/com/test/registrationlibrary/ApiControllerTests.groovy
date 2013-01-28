@@ -3,6 +3,7 @@ package com.test.registrationlibrary
 import com.test.registrationlibrary.UserController
 import com.test.registrationlibrary.UserService
 import com.test.registrationlibrary.validation.UserCommand
+import com.test.registrationlibrary.domain.*
 import grails.test.mixin.*
 import org.junit.*
 
@@ -10,7 +11,7 @@ import org.junit.*
  * See the API for {@link grails.test.mixin.web.ControllerUnitTestMixin} for usage instructions
  */
 @TestFor(ApiController)
-@Mock(UserService)
+@Mock([UserService,User])
 class ApiControllerTests {
 
     @Test

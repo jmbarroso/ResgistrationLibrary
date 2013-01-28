@@ -29,7 +29,7 @@
             </div>
 
             <div class="span2">
-                <span>${userCommand.username}</span>
+                <span>${user.username}</span>
             </div>
         </div>
 
@@ -39,7 +39,7 @@
             </div>
 
             <div class="span3">
-                <span>${userCommand.email}</span>
+                <span>${user.email}</span>
             </div>
         </div>
 
@@ -49,7 +49,7 @@
             </div>
 
             <div class="span3">
-                <span>${userCommand.zipCode}</span>
+                <span>${user.zipCode}</span>
             </div>
         </div>
     </div>
