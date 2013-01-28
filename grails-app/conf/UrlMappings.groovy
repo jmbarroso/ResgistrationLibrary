@@ -7,6 +7,10 @@ class UrlMappings {
 			}
 		}
 
+        "/api/users/"(controller: "api") {
+            action = [POST:"register"]
+        }
+
 		"/"(view:"/user/create")
 		"500"(view:'/error')
 	}
