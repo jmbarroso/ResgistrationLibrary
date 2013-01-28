@@ -34,7 +34,7 @@ grails.project.dependency.resolution = {
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
 
-        // runtime 'mysql:mysql-connector-java:5.1.20'
+        runtime "hsqldb:hsqldb:1.8.0.10"
     }
 
     plugins {
@@ -53,5 +53,6 @@ grails.project.dependency.resolution = {
 
         compile ':cache:1.0.0'
         compile ':twitter-bootstrap:2.2.2'
+
     }
 }
