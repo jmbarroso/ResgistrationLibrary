@@ -1,6 +1,6 @@
 = TEST PROJECT =
 
-It's a exercise for a grails position. Must be completed in 3 hours. An pdf file with description could be found in the root folder.
+It's a exercise for a grails position. Must be completed in 3 hours. A pdf file with description could be found in the root folder.
 
 Application is a front-end to register users and incudes a Rest service to permits to reuse the functionality. 
 
