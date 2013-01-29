@@ -9,11 +9,9 @@ Application is a front-end to register users and incudes a Rest service to permi
 * Application could be consumed fot other grails applications, and non grails applications (mobile, j2EE ..)
 ** For this reason de app is not a  grails plugins
 
-* The application uses a command object model to centralized validation. User registration sometime requieres validations that
- are out of domain classes scope (like password validation)
+* The application uses a command object model to centralized validation. User registration sometime requires validations that are out of domain classes scope (like password validation)
 
 * The application is designed to be open to new changes (there was doubt whether the requirements).
-** com-en , com-br are not domains valid. Should they get from user locale or HTTP_REFERER?
 
 * have done tests, but not strict TDD
 
