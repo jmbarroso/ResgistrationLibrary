@@ -4,7 +4,7 @@ It's a exercise for a grails position. Must be completed in 3 hours. A pdf file 
 
 Application is a front-end to register users and incudes a Rest service to permits to reuse the functionality. 
 
-Requirements and assumptions
+== Requirements and assumptions ==
 
 * Application could be consumed fot other grails applications, and non grails applications (mobile, j2EE ..)
 ** For this reason de app is not a  grails plugins
@@ -16,3 +16,29 @@ Requirements and assumptions
 ** com-en , com-br are not domains valid. Should they get from user locale or HTTP_REFERER?
 
 * have done tests, but not strict TDD
+
+== Implemented  solution ==
+
+A grails application that acts like web front-end. This application has an API that permits to other applications use the library.
+
+UserService has de business logic, a command object permits the creation constraints complementing Domain constraints.
+
+ne simple controller for the api, and one simple controller for web app permits small controllers.
+
+== Unresolved problems ==
+
+* Save in XML Data Store.
+
+** If this is necessary for prototyping purposes, I will overwrite the save method of the domain class in bootstrap.groovy.
+In this way it could be disable using a property from config.groovy
+
+* Detect where the user comes.
+
+** If the application is mapped in different domains, we could try to use de referer header parameter to parse and obtain domain. Other way is use the user locale but it isn't a safe method because the user could be using a computer
+   with a incorrect locale.
+** We can detect the locale, suggest a domain but allow the user to change it.
+
+== TODO ==
+
+Add custom messages for validation messages in command object
+Add typical user restriction (unique username, unique email ... )

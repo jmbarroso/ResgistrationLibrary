@@ -16,6 +16,13 @@ class UrlMappingsTests {
         assertForwardUrlMapping("/api/users", controller:'api', action: 'register')
     }
 
+    @Test
+    void "Consult valid email per user domain"()  {
+
+        request.method = 'GET'
+        assertForwardUrlMapping("/api/domains/emails", controller:'api', action: 'getValidEmailsGroupedByUserDomain')
+    }
+
 
 
 }
