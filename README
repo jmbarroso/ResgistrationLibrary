@@ -17,11 +17,16 @@ Application is a front-end to register users and incudes a Rest service to permi
 
 == Implemented  solution ==
 
-A grails application that acts like web front-end. This application has a REST API that permits to other applications use the library.
+* A grails application that acts like web front-end. This application has a REST API that permits to other applications use the library.
 
-UserService has de business logic, a command object permits the creation constraints complementing Domain constraints.
+* UserService has de business logic, a command object permits the creation constraints complementing Domain constraints.
+Valid Domain and emails could be configured in Config.groovy.
 
-ne simple controller for the api, and one simple controller for web app permits small controllers.
+* One simple controller for the api, and one simple controller for web app permits small and more clean controllers.
+
+* grails.views.default.codec was changed to 'html' for security
+
+* Views and error messages use i18n
 
 == Unresolved problems ==
 
