@@ -17,7 +17,7 @@ Application is a front-end to register users and incudes a Rest service to permi
 
 == Implemented  solution ==
 
-A grails application that acts like web front-end. This application has an API that permits to other applications use the library.
+A grails application that acts like web front-end. This application has a REST API that permits to other applications use the library.
 
 UserService has de business logic, a command object permits the creation constraints complementing Domain constraints.
 
