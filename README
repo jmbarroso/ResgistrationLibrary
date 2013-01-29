@@ -33,7 +33,7 @@ Valid Domain and emails could be configured in Config.groovy.
 * Save in XML Data Store.
 
 ** If this is necessary for prototyping purposes, I will overwrite the save method of the domain class in bootstrap.groovy.
-In this way it could be disable using a property from config.groovy
+In this way it could be disabled using a property from config.groovy
 
 * Detect where the user comes.
 
