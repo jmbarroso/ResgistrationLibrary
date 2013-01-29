@@ -37,7 +37,7 @@ In this way it could be disable using a property from config.groovy
 
 * Detect where the user comes.
 
-** If the application is mapped in different domains, we could try to use de referer header parameter to parse and obtain domain. Other way is use the user locale but it isn't a safe method because the user could be using a computer
+** If the application is mapped in different domains, we could try to use the referer header parameter to parse and obtain domain. Other way is use the user locale but it isn't a safe method because the user could be using a computer
    with a incorrect locale.
 ** We can detect the locale, suggest a domain but allow the user to change it.
 
