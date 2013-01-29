@@ -13,7 +13,7 @@ Application is a front-end to register users and incudes a Rest service to permi
 
 * The application is designed to be open to new changes (there was doubt whether the requirements).
 
-* have done tests, but not strict TDD
+* have done tests, but not strict TDD. Tests are the best documentation
 
 == Implemented  solution ==
 
