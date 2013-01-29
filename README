@@ -7,7 +7,7 @@ Application is a front-end to register users and incudes a Rest service to permi
 == Requirements and assumptions ==
 
 * Application could be consumed fot other grails applications, and non grails applications (mobile, j2EE ..)
-** For this reason de app is not a  grails plugins
+** For this reason de app is not a  grails plugin
 
 * The application uses a command object model to centralized validation. User registration sometime requires validations that are out of domain classes scope (like password validation)
 
